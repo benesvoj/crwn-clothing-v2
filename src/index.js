@@ -5,11 +5,14 @@ import './main.scss'
 import {RouterProvider} from "react-router-dom";
 import {router} from "./router/router";
 import {UserProvider} from "./store/user.context";
+import {ProductsProvider} from "./store/products.context";
 
 ReactDOM.render(
     <React.StrictMode>
         <UserProvider>
-            <RouterProvider router={router}/>
+            <ProductsProvider>
+                <RouterProvider router={router}/>
+            </ProductsProvider>
         </UserProvider>
     </React.StrictMode>,
     document.getElementById('root')
