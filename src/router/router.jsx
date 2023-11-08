@@ -2,25 +2,26 @@ import {createBrowserRouter} from "react-router-dom";
 import App from "../App";
 import {Shop} from "../components/shop/shop";
 import {Layout} from "../components/layout/layout";
-import {SignIn} from "../components/signIn/signIn";
+import {Authentication} from "../pages/authentication/authentication";
+import {urls} from "../utils/urls";
 
 export const router = createBrowserRouter([
     {
-        path: "/",
+        path: urls.home,
         element: <Layout/>,
         children: [
             {
-                path: "/",
+                path: urls.home,
                 element: <App />,
                 indexRoute: true
             },
             {
-                path: "shop",
+                path: urls.shop,
                 element: <Shop />
             },
             {
-                path: "sign-in",
-                element: <SignIn />
+                path: urls.authentication,
+                element: <Authentication />
             }
         ]
     },
