@@ -8,6 +8,8 @@ import {
 } from "../../utils/firebase/firebase.utils";
 
 import './signInForm.styles.scss'
+import {useNavigate} from "react-router-dom";
+import {urls} from "../../utils/urls";
 
 const defaultFormState = {
     email: '',
@@ -17,6 +19,7 @@ const defaultFormState = {
 export const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormState)
     const {email, password} = formFields
+    const navigate = useNavigate();
 
     const resetFormFields = () => setFormFields(defaultFormState)
 
@@ -29,9 +32,9 @@ export const SignInForm = () => {
         event.preventDefault()
 
         try {
-            const response = await signInAuthUserWithEmailAndPassword(email, password)
-            console.log(response)
+            await signInAuthUserWithEmailAndPassword(email, password)
             resetFormFields()
+            navigate(`/${urls.shop}`)
         } catch (error) {
             switch (error.code) {
                 case 'auth/user-not-found': {
@@ -55,9 +58,7 @@ export const SignInForm = () => {
     }
 
     const signInWithGoogle = async () => {
-        const {user} = await signInWithGooglePopup()
-        console.log(user)
-        await createUserDocumentFromAuth(user)
+        await signInWithGooglePopup()
     }
 
     return (
