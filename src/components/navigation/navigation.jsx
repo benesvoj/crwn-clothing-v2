@@ -3,11 +3,16 @@ import {ReactComponent as CrownLogo} from "../../assets/crown.svg";
 import './navigation.styles.scss'
 import {urls} from "../../utils/urls";
 import {useContext} from "react";
-import {UserContext} from "../../store/user.context";
 import {signOutUser} from "../../utils/firebase/firebase.utils";
+import {CartIcon} from "../cartIcon/cartIcon";
+import {CartDropdown} from "../cartDropdown/cartDropdown";
+
+import {UserContext} from "../../store/user.context";
+import {CartContext} from "../../store/cart.contex";
 
 export const Navigation = () => {
     const {currentUser} = useContext(UserContext)
+    const {isCartOpen} = useContext(CartContext)
 
     return (
         <nav className={'nav'}>
@@ -23,7 +28,9 @@ export const Navigation = () => {
                         <Link className={"nav-link"} to={`/${urls.authentication}`}>Sign In</Link>
                     )
                 }
+                <CartIcon/>
             </div>
+            {isCartOpen && <CartDropdown/>}
         </nav>
     )
 }

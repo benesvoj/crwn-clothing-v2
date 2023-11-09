@@ -6,12 +6,15 @@ import {RouterProvider} from "react-router-dom";
 import {router} from "./router/router";
 import {UserProvider} from "./store/user.context";
 import {ProductsProvider} from "./store/products.context";
+import {CartProvider} from "./store/cart.contex";
 
 ReactDOM.render(
     <React.StrictMode>
         <UserProvider>
             <ProductsProvider>
-                <RouterProvider router={router}/>
+                <CartProvider>
+                    <RouterProvider router={router}/>
+                </CartProvider>
             </ProductsProvider>
         </UserProvider>
     </React.StrictMode>,
