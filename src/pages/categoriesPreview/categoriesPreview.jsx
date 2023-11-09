@@ -1,14 +1,15 @@
 import {CategoriesContext} from "../../store/categories.context";
 import {useContext} from "react";
 
-import './shop.styles.scss'
 import {CategoryPreview} from "../../components/category-preview/categoryPreview";
 
-export const Shop = () => {
+export const CategoriesPreview = () => {
     const {categoriesMap} = useContext(CategoriesContext);
 
+    console.log('fire categories preview')
+
     return (
-        <div className={'shop-container'}>
+        <>
             {
                 Object.keys(categoriesMap).map((category) => {
                     const products = categoriesMap[category]
@@ -17,6 +18,6 @@ export const Shop = () => {
                     )
                 })
             }
-        </div>
+        </>
     )
 }
