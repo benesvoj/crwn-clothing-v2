@@ -4,6 +4,7 @@ import {Shop} from "../pages/shop/shop";
 import {Layout} from "../components/layout/layout";
 import {Authentication} from "../pages/authentication/authentication";
 import {urls} from "../utils/urls";
+import {Checkout} from "../pages/checkout/checkout";
 
 export const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
             {
                 path: urls.authentication,
                 element: <Authentication />
+            },
+            {
+              path: urls.checkout,
+              element: <Checkout />
             }
         ]
     },

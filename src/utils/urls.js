@@ -1,5 +1,6 @@
 export const urls = {
     home: '/',
     authentication: 'auth',
-    shop: 'shop'
+    shop: 'shop',
+    checkout: 'checkout',
 }
