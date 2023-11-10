@@ -1,15 +1,15 @@
 import {FormInput} from "../formInput/formInput";
-import {Button} from "../button/button";
+import Button, {BUTTON_TYPE_CLASSES} from "../button/button";
 import {useState} from "react";
 import {
-    createUserDocumentFromAuth,
     signInAuthUserWithEmailAndPassword,
     signInWithGooglePopup
 } from "../../utils/firebase/firebase.utils";
 
-import './signInForm.styles.scss'
+import './signInForm.styles'
 import {useNavigate} from "react-router-dom";
 import {urls} from "../../utils/urls";
+import {ButtonsContainer, SignInContainer, SignInTitle} from "./signInForm.styles";
 
 const defaultFormState = {
     email: '',
@@ -62,8 +62,8 @@ export const SignInForm = () => {
     }
 
     return (
-        <div className={'sign-in-container'}>
-            <h2>Already have an account?</h2>
+        <SignInContainer>
+            <SignInTitle>Already have an account?</SignInTitle>
             <span>Signed in with your email and password</span>
             <form onSubmit={handleSubmit}>
                 <FormInput
@@ -82,11 +82,11 @@ export const SignInForm = () => {
                     value={password}
                     required
                 />
-                <div className={'buttons-container'}>
+                <ButtonsContainer>
                     <Button type={'submit'}>Sign In</Button>
-                    <Button type={'button'} buttonType={'google'} onClick={signInWithGoogle}>Google Sign In</Button>
-                </div>
+                    <Button type={'button'} buttonType={BUTTON_TYPE_CLASSES.google} onClick={signInWithGoogle}>Google Sign In</Button>
+                </ButtonsContainer>
             </form>
-        </div>
+        </SignInContainer>
     )
 }

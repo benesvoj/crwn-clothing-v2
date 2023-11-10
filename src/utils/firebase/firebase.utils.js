@@ -1,14 +1,14 @@
 import {initializeApp} from 'firebase/app'
 import {
-    GoogleAuthProvider,
-    signInWithPopup,
-    getAuth,
     createUserWithEmailAndPassword,
+    getAuth,
+    GoogleAuthProvider,
+    onAuthStateChanged,
     signInWithEmailAndPassword,
-    signOut,
-    onAuthStateChanged
+    signInWithPopup,
+    signOut
 } from 'firebase/auth'
-import {getFirestore, doc, getDoc, setDoc, collection, writeBatch, query, getDocs} from 'firebase/firestore'
+import {collection, doc, getDoc, getDocs, getFirestore, query, setDoc, writeBatch} from 'firebase/firestore'
 
 const firebaseConfig = {
     apiKey: "AIzaSyDgwQTMz-nrbWKAPbUEZU_p4LwbH3feHh4",
@@ -49,13 +49,11 @@ export const getCategoriesAndDocuments = async () => {
 
     const querySnapshot = await getDocs(q)
 
-    const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    return querySnapshot.docs.reduce((acc, docSnapshot) => {
         const {title, items} = docSnapshot.data()
         acc[title.toLowerCase()] = items
         return acc
     }, {})
-
-    return categoryMap
 }
 
 export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {

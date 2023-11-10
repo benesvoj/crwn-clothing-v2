@@ -1,12 +1,19 @@
-import {CategoryItem} from "../category-item/category-item.components";
-import './directory.styles.scss'
+import {DirectoryItem} from "../directory-item/directoryItem";
+import styled from "styled-components";
 
 export const Directory = ({categories}) => {
     return (
-        <div className='categories-container'>
+        <CategoriesContainer>
             {categories.map((category) => (
-                <CategoryItem category={category} key={category.id} />
+                <DirectoryItem category={category} key={category.id} />
             ))}
-        </div>
+        </CategoriesContainer>
     )
 }
+
+const CategoriesContainer = styled.div`
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+`
