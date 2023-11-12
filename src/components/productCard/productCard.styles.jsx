@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Button from "../button/button";
 
 export const ProductCardContainer = styled.div`
   width: 100%;
@@ -7,15 +8,31 @@ export const ProductCardContainer = styled.div`
   height: 350px;
   align-items: center;
   position: relative;
-`
-export const ImageContainer = styled.div`
-  width: 100%;
-  height: 95%;
-  object-fit: cover;
-  margin-bottom: 5px;
+
+  img {
+    width: 100%;
+    height: 95%;
+    object-fit: cover;
+    margin-bottom: 5px;
+  }
+
+  button {
+    width: 80%;
+    opacity: 0.7;
+    position: absolute;
+    top: 255px;
+    display: none;
+  }
 
   &:hover {
-    opacity: 0.8;
+    img {
+      opacity: 0.8;
+    }
+
+    button {
+      opacity: 0.85;
+      display: flex;
+    }
   }
 `
 export const FooterContainer = styled.div`
@@ -32,23 +49,3 @@ export const Name = styled.span`
 export const Price = styled.span`
   width: 15%;
 `
-
-
-// button {
-//   width: 80%;
-//   opacity: 0.7;
-//   position: absolute;
-//   top: 255px;
-//   display: none;
-// }
-
-// &:hover {
-//   img {
-//     opacity: 0.8;
-//   }
-//
-//   button {
-//     opacity: 0.85;
-//     display: flex;
-//   }
-// }
