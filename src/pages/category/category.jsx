@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 export const Category = () => {
     const {category} = useParams()
-    console.log(category)
+
     const {categoriesMap} = useContext(CategoriesContext);
 
     const [products, setProducts] = useState(categoriesMap[category])
@@ -15,7 +15,6 @@ export const Category = () => {
         setProducts(categoriesMap[category])
     }, [category, categoriesMap])
 
-    console.log('fire category')
 
     return (
         <>
