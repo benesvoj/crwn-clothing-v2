@@ -3,10 +3,10 @@ import {CategoryPreview} from "../../components/category-preview/categoryPreview
 import {getCategoriesAndDocuments} from "../../utils/firebase/firebase.utils";
 import {useDispatch, useSelector} from "react-redux";
 import {setCategories} from "../../store/categories/categories.action";
-import {selectCategories} from "../../store/categories/categories.selector";
+import {selectCategoriesMap} from "../../store/categories/categories.selector";
 
 export const Shop = () => {
-    const categoriesMap = useSelector(selectCategories)
+    const categoriesMap = useSelector(selectCategoriesMap)
     const dispatch = useDispatch()
 
     useEffect(() => {
