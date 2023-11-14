@@ -4,16 +4,13 @@ import reportWebVitals from './reportWebVitals';
 import './main.scss'
 import {RouterProvider} from "react-router-dom";
 import {router} from "./router/router";
-import {CartProvider} from "./contexts/cart.contex";
 import {Provider} from "react-redux";
 import {store} from "./store/store";
 
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
-            <CartProvider>
-                <RouterProvider router={router}/>
-            </CartProvider>
+            <RouterProvider router={router}/>
         </Provider>
     </React.StrictMode>,
     document.getElementById('root')
