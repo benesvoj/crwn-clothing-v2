@@ -1,6 +1,6 @@
 import {CartItem} from "../cartItem/cartItem";
 import {useContext} from "react";
-import {CartContext} from "../../store/cart.contex";
+import {CartContext} from "../../contexts/cart.contex";
 import {useNavigate} from "react-router-dom";
 import {urls} from "../../utils/urls";
 import {CartDropdownContainer, CartItems, EmptyMessage} from "./cart-dropdown.styles";

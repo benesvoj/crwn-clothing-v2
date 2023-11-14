@@ -1,6 +1,6 @@
 import './checkout.styles'
 import {CheckoutItem} from "../../components/checkoutItem/checkoutItem";
-import {CartContext} from "../../store/cart.contex";
+import {CartContext} from "../../contexts/cart.contex";
 import {useContext} from "react";
 import {CheckoutContainer, CheckoutHeader, CheckoutFooter, HeaderBlock} from "./checkout.styles";
 

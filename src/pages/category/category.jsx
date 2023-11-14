@@ -1,5 +1,5 @@
 import {useParams} from "react-router-dom";
-import {CategoriesContext} from "../../store/categories.context";
+import {CategoriesContext} from "../../contexts/categories.context";
 import {useContext, useEffect, useState} from "react";
 import {ProductCard} from "../../components/productCard/productCard";
 import styled from "styled-components";

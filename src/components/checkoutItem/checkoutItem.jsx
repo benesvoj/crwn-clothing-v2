@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {CartContext} from "../../store/cart.contex";
+import {CartContext} from "../../contexts/cart.contex";
 import {
     Arrow,
     CheckoutItemContainer,

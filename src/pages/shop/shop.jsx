@@ -1,4 +1,4 @@
-import {CategoriesContext} from "../../store/categories.context";
+import {CategoriesContext} from "../../contexts/categories.context";
 import {useContext} from "react";
 import {CategoryPreview} from "../../components/category-preview/categoryPreview";
 
