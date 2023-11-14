@@ -46,7 +46,7 @@ export const addItemToCart = (cartItems, productToAdd) => {
     return createAction(CART_ACTION_TYPE.SET_CART_ITEMS, newCartItems)
 }
 
-export const remoteItemFromCart = (cartItems, productToRemove) => {
+export const removeItemFromCart = (cartItems, productToRemove) => {
     const newCartItems = removeCartItem(cartItems, productToRemove)
     return createAction(CART_ACTION_TYPE.SET_CART_ITEMS, newCartItems)
 }

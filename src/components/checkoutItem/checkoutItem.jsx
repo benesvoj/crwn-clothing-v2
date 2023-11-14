@@ -8,18 +8,18 @@ import {
     Quantity, RemoveButton,
     Value
 } from "./checkout-item.styles";
-import {addItemToCart, clearItemFromCart, remoteItemFromCart} from "../../store/cart/cart.action";
+import {addItemToCart, clearItemFromCart, removeItemFromCart} from "../../store/cart/cart.action";
 import {useDispatch, useSelector} from "react-redux";
-import {selectCartItems} from "../../store/cart/cart.selector";
+import {selectCartItems, selectCartTotal} from "../../store/cart/cart.selector";
 
 export const CheckoutItem = ({cartItem}) => {
-    const {name, quantity, price, imageUrl} = cartItem
+    const {name, quantity, imageUrl} = cartItem
     const dispatch = useDispatch()
     const cartItems = useSelector(selectCartItems)
 
-    const totalPrice = quantity * price
+    const totalPrice = useSelector(selectCartTotal)
 
-    const handleRemoveItem = () => dispatch(remoteItemFromCart(cartItems, cartItem))
+    const handleRemoveItem = () => dispatch(removeItemFromCart(cartItems, cartItem))
     const handleAddItem = () => dispatch(addItemToCart(cartItems, cartItem))
     const handleClearItem = () => dispatch(clearItemFromCart(cartItems, cartItem))
 
